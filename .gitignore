@@ -3,6 +3,20 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# virtual environment
+venv/
+
+# extracted data — too large for git
+data/raw/
+data/extracted/
+data/corpus/
+chat.txt
+OlympiadMind_PLAN.md
+# model cache — downloaded automatically
+.cache/
+*.pth
+*.bin
+
 # C extensions
 *.so
 
