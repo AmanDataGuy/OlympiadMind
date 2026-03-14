@@ -78,6 +78,11 @@ INLINE_PATTERN  = re.compile(r'\$([^$]{3,})\$')
 # display equations: $$...$$
 DISPLAY_PATTERN = re.compile(r'\$\$(.+?)\$\$', re.DOTALL)
 
+# Nougat uses \(...\) for inline and \[...\] or \begin{equation} for display
+NOUGAT_INLINE_PATTERN  = re.compile(r'\\\((.+?)\\\)', re.DOTALL)
+NOUGAT_DISPLAY_PATTERN = re.compile(r'\\\[(.+?)\\\]', re.DOTALL)
+NOUGAT_ENV_PATTERN     = re.compile(r'\\begin\{(?:equation|align|gather)\*?\}(.+?)\\end\{(?:equation|align|gather)\*?\}', re.DOTALL)
+
 # count valid latex tokens as a confidence proxy
 LATEX_TOKEN_PATTERN = re.compile(
     r'\\(?:frac|sqrt|sum|int|prod|lim|infty|alpha|beta|gamma|delta|theta|'
@@ -92,16 +97,20 @@ def count_latex_tokens(text: str) -> int:
 
 
 def extract_equations_from_markdown(markdown: str) -> dict:
-    """
-    Parse Nougat markdown output and extract all LaTeX equations.
-    Returns inline and display equations separately.
-    """
-    # display equations first — remove them before searching for inline
-    display = DISPLAY_PATTERN.findall(markdown)
+    display = (
+        DISPLAY_PATTERN.findall(markdown) +
+        NOUGAT_DISPLAY_PATTERN.findall(markdown) +
+        NOUGAT_ENV_PATTERN.findall(markdown)
+    )
     cleaned = DISPLAY_PATTERN.sub("", markdown)
-    inline  = INLINE_PATTERN.findall(cleaned)
+    cleaned = NOUGAT_DISPLAY_PATTERN.sub("", cleaned)
+    cleaned = NOUGAT_ENV_PATTERN.sub("", cleaned)
 
-    # filter out very short matches — likely noise
+    inline = (
+        INLINE_PATTERN.findall(cleaned) +
+        NOUGAT_INLINE_PATTERN.findall(cleaned)
+    )
+
     inline  = [eq.strip() for eq in inline  if len(eq.strip()) >= MIN_EQUATION_LENGTH]
     display = [eq.strip() for eq in display if len(eq.strip()) >= MIN_EQUATION_LENGTH]
 
@@ -133,14 +142,14 @@ def run_nougat_on_page(model, page_image: Image.Image) -> tuple[str, float]:
     Returns (markdown_text, confidence_score).
     Confidence is approximated by the ratio of valid LaTeX tokens to page area.
     """
-    # prepare input tensor
     tensor = model.encoder.prepare_input(page_image, random_padding=False)
     tensor = tensor.unsqueeze(0).to(DEVICE)
 
     with torch.no_grad():
         output = model.inference(image_tensors=tensor, early_stopping=True)
 
-    markdown   = output["predictions"][0] if output["predictions"] else ""
+    markdown = output["predictions"][0] if output["predictions"] else ""
+
     confidence = min(count_latex_tokens(markdown) / max(len(markdown), 1) * 100, 1.0)
 
     return markdown, confidence
@@ -225,7 +234,7 @@ def extract_equations_from_pdf(
     for page_num_str, page_info in page_types.items():
         content_types = page_info.get("content_types", [])
 
-        if "equations" not in content_types:
+        if "equations" not in content_types and "typeset_text" not in content_types:
             continue
 
         page_num = int(page_num_str)
