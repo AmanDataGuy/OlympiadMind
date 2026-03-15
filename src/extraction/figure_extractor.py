@@ -166,13 +166,12 @@ Return ONLY valid JSON.""",
 }
 
 def load_qwen():
-    """Load Qwen2-VL 2B — fits comfortably on 6GB VRAM."""
     from transformers import Qwen2VLForConditionalGeneration, AutoProcessor
 
     model = Qwen2VLForConditionalGeneration.from_pretrained(
         "Qwen/Qwen2-VL-2B-Instruct",
         torch_dtype=torch.float16,
-        device_map="auto",
+        device_map="cuda",
     )
     processor = AutoProcessor.from_pretrained("Qwen/Qwen2-VL-2B-Instruct")
     return model, processor
@@ -210,7 +209,7 @@ def describe_figure(qwen_model, processor, image: Image.Image, diagram_type: str
     ).to(DEVICE)
 
     with torch.no_grad():
-        output_ids = qwen_model.generate(**inputs, max_new_tokens=300)
+        output_ids = qwen_model.generate(**inputs, max_new_tokens=150   )
 
     # decode only the new tokens
     generated = output_ids[:, inputs["input_ids"].shape[1]:]
@@ -283,10 +282,17 @@ def extract_figures_from_pdf(
                 clip_model, clip_preprocess, clip_tokenizer, pil_image
             )
 
-            # stage 2 — Qwen2-VL description
-            description = describe_figure(
-                qwen_model, qwen_processor, pil_image, diagram_type
-            )
+            try:
+                description = describe_figure(
+                    qwen_model, qwen_processor, pil_image, diagram_type
+                )
+            except Exception as e:
+                description = {
+                    "diagram_type":    diagram_type,
+                    "physics_concept": "unknown",
+                    "description":     f"extraction failed: {str(e)}",
+                    "parse_error":     True,
+                }
 
             # save image
             figure_id  = f"{doc_id}_p{page_num_str}_f{img_idx}"
