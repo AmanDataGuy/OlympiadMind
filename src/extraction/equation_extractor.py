@@ -234,7 +234,7 @@ def extract_equations_from_pdf(
     for page_num_str, page_info in page_types.items():
         content_types = page_info.get("content_types", [])
 
-        if "equations" not in content_types and "typeset_text" not in content_types:
+        if "equations" not in content_types:
             continue
 
         page_num = int(page_num_str)
