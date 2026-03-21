@@ -20,6 +20,8 @@ import re
 import sys
 from typing import TypedDict, Optional
 from dotenv import load_dotenv
+from langchain_core.tracers.context import collect_runs
+from modal import Client
 
 load_dotenv()
 
@@ -225,9 +227,15 @@ def generate_with_modal(prompt: str) -> tuple:
     )
 
     if result.returncode != 0:
-        raise Exception(result.stderr[:200])
+        raise Exception(result.stderr[:500])
 
-    solution   = result.stdout.strip()
+    output = result.stdout
+
+    if "===SOLUTION_START===" in output and "===SOLUTION_END===" in output:
+        solution = output.split("===SOLUTION_START===")[1].split("===SOLUTION_END===")[0].strip()
+    else:
+        solution = output.strip()
+
     confidence = 0.75 if len(solution) > 100 else 0.4
     return solution, confidence
 
@@ -399,8 +407,10 @@ def build_agent():
 def solve(problem_text: str) -> dict:
     """
     Main entry point — solve a physics problem.
-    Returns dict with solution, confidence, citations, topic, concepts.
+    Returns dict with solution, confidence, citations, topic, concepts, trace_url.
     """
+    from langchain_core.tracers.context import collect_runs
+
     agent = build_agent()
 
     initial_state = QueryState(
@@ -416,7 +426,22 @@ def solve(problem_text: str) -> dict:
         error          = None,
     )
 
-    final_state = agent.invoke(initial_state)
+    from langsmith import Client
+
+    with collect_runs() as cb:
+        final_state = agent.invoke(initial_state)
+        run_id = cb.traced_runs[0].id if cb.traced_runs else None
+
+# share the run publicly
+    trace_url = None
+    if run_id:
+        try:
+            ls_client = Client()
+            trace_url = ls_client.share_run(run_id)
+        except Exception as e:
+            print(f"LangSmith share failed: {type(e).__name__}: {e}")
+            trace_url = "https://smith.langchain.com"
+
 
     return {
         "topic":      final_state.get("topic"),
@@ -424,6 +449,7 @@ def solve(problem_text: str) -> dict:
         "solution":   final_state.get("solution"),
         "confidence": final_state.get("confidence"),
         "citations":  final_state.get("citations"),
+        "trace_url":  trace_url,
     }
 
 
@@ -442,3 +468,5 @@ if __name__ == "__main__":
     for c in result.get("citations", []):
         print(f"  {c}")
     print(f"\nSolution:\n{result['solution']}")
+    if result.get("trace_url"):
+        print(f"\nTrace: {result['trace_url']}")
