@@ -1,0 +1,7 @@
+echo "data/raw
+data/extracted
+models/gemma-physics
+venv
+__pycache__
+*.pyc
+.env" > .dockerignore
