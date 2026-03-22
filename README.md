@@ -145,23 +145,24 @@ OlympiadMind ingests 1,120 Physics Olympiad PDFs across 8 source types, 3 langua
 ---
 
 ## How to Run
+
+**Option 1 — Docker**
 ```bash
-# clone
 git clone https://github.com/AmanDataGuy/OlympiadMind
 cd OlympiadMind
+cp .env.example .env
+# fill in NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD, LANGCHAIN_API_KEY, HF_TOKEN
+docker-compose up --build
+```
+FastAPI at `localhost:8000/docs` · Streamlit at `localhost:8501`
 
-# install dependencies
+> Note: requires `.env` credentials and `data/` folder with FAISS indexes and RAPTOR tree.
+
+**Option 2 — Local**
+```bash
 pip install -r requirements.txt
-
-# configure environment
-# create .env and fill in: NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD,
-# LANGCHAIN_API_KEY, LANGCHAIN_PROJECT, HF_TOKEN, MODAL token
-
-# terminal 1 — FastAPI
-python main.py
-
-# terminal 2 — Streamlit
-streamlit run app.py
+python main.py          # terminal 1 — FastAPI
+streamlit run app.py    # terminal 2 — Streamlit
 ```
 
 FastAPI swagger UI at `localhost:8000/docs` · Streamlit UI at `localhost:8501`
