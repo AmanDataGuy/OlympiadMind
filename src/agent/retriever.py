@@ -139,7 +139,7 @@ class Neo4jRetriever:
                 # fallback: keyword search in problem text
                 result = session.run("""
                     MATCH (p:Problem)
-                    WHERE toLower(p.problem_text) CONTAINS toLower($query)
+                    WHERE toLower(p.problem_text) CONTAINS toLower($search_query)
                     RETURN p.id AS doc_id,
                            p.problem_text AS text,
                            p.source AS source,
@@ -147,7 +147,7 @@ class Neo4jRetriever:
                            p.year AS year,
                            1 AS relevance
                     LIMIT $top_k
-                """, query=query[:50], top_k=top_k)
+                """, search_query=query[:50], top_k=top_k)
 
             results = []
             for record in result:

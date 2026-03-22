@@ -11,7 +11,7 @@ Flow:
 Uses:
   - Fine-tuned Gemma 2B for concept extraction (Phase 8 — falls back to keyword)
   - Hybrid retriever (RAPTOR + Neo4j + FAISS)
-  - Mistral 7B via transformers for solution generation (local)
+  - Mistral 7B via Modal for solution generation
 """
 
 import json
@@ -21,7 +21,6 @@ import sys
 from typing import TypedDict, Optional
 from dotenv import load_dotenv
 from langchain_core.tracers.context import collect_runs
-from modal import Client
 
 load_dotenv()
 
@@ -29,21 +28,14 @@ load_dotenv()
 # ── state definition ──────────────────────────────────────────────────────────
 
 class QueryState(TypedDict):
-    # input
     problem_text:   str
-    problem_source: Optional[str]   # olympiad / science_bowl / cbse etc
-
-    # intermediate
+    problem_source: Optional[str]
     topic:          Optional[str]
     concepts:       Optional[list]
     retrieval:      Optional[dict]
-
-    # output
     solution:       Optional[str]
     confidence:     Optional[float]
     citations:      Optional[list]
-
-    # control
     retry_count:    int
     error:          Optional[str]
 
@@ -70,24 +62,46 @@ TOPIC_KEYWORDS = {
 
 
 def classify_topic(state: QueryState) -> QueryState:
-    """
-    Classify problem into one of 6 physics topics using keyword matching.
-    Falls back to 'Mechanics' if no clear match.
-    """
     text   = state["problem_text"].lower()
     scores = {}
-
     for topic, keywords in TOPIC_KEYWORDS.items():
         scores[topic] = sum(1 for kw in keywords if kw in text)
-
     best_topic = max(scores, key=scores.get)
     if scores[best_topic] == 0:
         best_topic = "Mechanics"
-
     return {**state, "topic": best_topic}
 
 
 # ── concept extractor ─────────────────────────────────────────────────────────
+
+def gemma_extract_concepts(text: str) -> list:
+    """Extract physics concepts using fine-tuned Gemma 2B."""
+    import torch
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    from peft import PeftModel
+
+    PEFT_PATH = "models/gemma-physics"
+    MODEL_ID  = "google/gemma-2-2b-it"
+
+    tokenizer  = AutoTokenizer.from_pretrained(PEFT_PATH)
+    base_model = AutoModelForCausalLM.from_pretrained(
+        MODEL_ID, dtype=torch.float16, device_map={"": 0}
+    )
+    model = PeftModel.from_pretrained(base_model, PEFT_PATH, device_map={"": 0})
+    model.eval()
+
+    prompt = f"<start_of_turn>user\nList the physics concepts required to solve this problem.\n\n{text[:400]}<end_of_turn>\n<start_of_turn>model\n"
+    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+    with torch.no_grad():
+        output = model.generate(**inputs, max_new_tokens=100, do_sample=False)
+    generated = output[0][inputs["input_ids"].shape[1]:]
+    result    = tokenizer.decode(generated, skip_special_tokens=True).strip()
+
+    try:
+        return json.loads(result)
+    except Exception:
+        return [result]
+
 
 def extract_concepts(state: QueryState) -> QueryState:
     """
@@ -96,37 +110,39 @@ def extract_concepts(state: QueryState) -> QueryState:
     """
     text = state["problem_text"]
 
-    # try fine-tuned Gemma first (Phase 8 — not yet available)
-    # falls back to keyword-based extraction
-    concepts = keyword_extract_concepts(text, state.get("topic", "Mechanics"))
+    try:
+        concepts = gemma_extract_concepts(text)
+        print(f"Gemma returned: {concepts}")
+        if not concepts:
+            raise ValueError("Empty concepts returned")
+    except Exception as e:
+        print(f"Gemma extraction failed: {e}")
+        concepts = keyword_extract_concepts(text, state.get("topic", "Mechanics"))
 
-    return {**state, "concepts": concepts}
+    state["concepts"] = concepts
+    return state
 
 
 def keyword_extract_concepts(text: str, topic: str) -> list:
-    """
-    Extract physics concepts using keyword matching as fallback.
-    Returns list of concept strings.
-    """
     text_lower = text.lower()
     concepts   = []
 
     concept_patterns = {
-        "conservation of energy":        ["energy", "conserv"],
-        "conservation of momentum":       ["momentum", "conserv"],
-        "conservation of angular momentum": ["angular momentum"],
-        "lorentz force":                  ["magnetic field", "charge", "velocity"],
-        "circular motion":                ["circular", "radius", "centripetal"],
-        "simple harmonic motion":         ["oscillat", "harmonic", "period"],
-        "gauss's law":                    ["electric flux", "gauss"],
-        "faraday's law":                  ["induction", "faraday", "emf"],
-        "snell's law":                    ["refraction", "snell", "refractive"],
-        "special relativity":             ["relativit", "speed of light", "lorentz"],
-        "ideal gas law":                  ["ideal gas", "pv=nrt", "pressure", "volume", "temperature"],
-        "newton's laws":                  ["force", "acceleration", "mass"],
-        "work-energy theorem":            ["work", "kinetic energy"],
-        "ohm's law":                      ["resistance", "current", "voltage"],
-        "doppler effect":                 ["doppler", "frequency shift"],
+        "conservation of energy":           ["energy", "conserv"],
+        "conservation of momentum":          ["momentum", "conserv"],
+        "conservation of angular momentum":  ["angular momentum"],
+        "lorentz force":                     ["magnetic field", "charge", "velocity"],
+        "circular motion":                   ["circular", "radius", "centripetal"],
+        "simple harmonic motion":            ["oscillat", "harmonic", "period"],
+        "gauss's law":                       ["electric flux", "gauss"],
+        "faraday's law":                     ["induction", "faraday", "emf"],
+        "snell's law":                       ["refraction", "snell", "refractive"],
+        "special relativity":                ["relativit", "speed of light", "lorentz"],
+        "ideal gas law":                     ["ideal gas", "pv=nrt", "pressure", "volume", "temperature"],
+        "newton's laws":                     ["force", "acceleration", "mass"],
+        "work-energy theorem":               ["work", "kinetic energy"],
+        "ohm's law":                         ["resistance", "current", "voltage"],
+        "doppler effect":                    ["doppler", "frequency shift"],
     }
 
     for concept, patterns in concept_patterns.items():
@@ -146,7 +162,6 @@ _retriever = None
 def get_retriever():
     global _retriever
     if _retriever is None:
-        import sys
         sys.path.insert(0, ".")
         from src.agent.retriever import HybridRetriever
         _retriever = HybridRetriever()
@@ -154,7 +169,6 @@ def get_retriever():
 
 
 def retrieve(state: QueryState) -> QueryState:
-    """Retrieve relevant context from RAPTOR + Neo4j + FAISS."""
     retriever = get_retriever()
     results   = retriever.retrieve(
         query    = state["problem_text"],
@@ -181,11 +195,8 @@ Provide a clear step-by-step solution:
 
 Be precise and show all working. If the problem involves equations, write them clearly."""
 
+
 def generate_solution(state: QueryState) -> QueryState:
-    """
-    Generate solution using Mistral 7B on Modal.
-    Falls back to structured response if Modal fails.
-    """
     context = state.get("retrieval", {}).get("combined_context", "")
     problem = state["problem_text"]
     prompt  = SOLUTION_PROMPT.format(context=context[:2000], problem=problem)
@@ -210,7 +221,6 @@ def generate_solution(state: QueryState) -> QueryState:
 def generate_with_modal(prompt: str) -> tuple:
     import subprocess
     import tempfile
-    import os
 
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
@@ -240,67 +250,9 @@ def generate_with_modal(prompt: str) -> tuple:
     return solution, confidence
 
 
-    def run_mistral(prompt: str) -> str:
-        import torch
-        from transformers import AutoTokenizer, AutoModelForCausalLM
-
-        model_id  = "mistralai/Mistral-7B-Instruct-v0.3"
-        tokenizer = AutoTokenizer.from_pretrained(model_id)
-        model     = AutoModelForCausalLM.from_pretrained(
-            model_id, torch_dtype=torch.float16, device_map="auto"
-        )
-        formatted = f"[INST] {prompt} [/INST]"
-        inputs    = tokenizer(formatted, return_tensors="pt").to("cuda")
-        with torch.no_grad():
-            output = model.generate(**inputs, max_new_tokens=500, do_sample=False)
-        generated = output[0][inputs["input_ids"].shape[1]:]
-        return tokenizer.decode(generated, skip_special_tokens=True).strip()
-
-    app = modal.App("olympiadmind-solver")
-    with app.run():
-        solution = run_mistral.remote(prompt)
-
-    confidence = 0.75 if len(solution) > 100 else 0.4
-    return solution, confidence
-
-def generate_with_local_model(prompt: str) -> tuple:
-    """
-    Generate solution using local Mistral or Gemma model.
-    Returns (solution_text, confidence_score).
-    """
-    import torch
-    from transformers import AutoTokenizer, AutoModelForCausalLM
-
-    model_id  = "mistralai/Mistral-7B-Instruct-v0.3"
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
-    model     = AutoModelForCausalLM.from_pretrained(
-        model_id,
-        torch_dtype=torch.float16,
-        device_map="auto",
-    )
-
-    formatted = f"[INST] {prompt} [/INST]"
-    inputs    = tokenizer(formatted, return_tensors="pt").to("cuda" if torch.cuda.is_available() else "cpu")
-
-    with torch.no_grad():
-        output = model.generate(
-            **inputs,
-            max_new_tokens = 500,
-            do_sample      = False,
-            temperature    = 0.1,
-        )
-
-    generated  = output[0][inputs["input_ids"].shape[1]:]
-    solution   = tokenizer.decode(generated, skip_special_tokens=True).strip()
-    confidence = 0.75 if len(solution) > 100 else 0.4
-
-    return solution, confidence
-
-
 def generate_structured_response(state: QueryState) -> str:
-    """Fallback structured response using retrieved context."""
-    topic    = state.get("topic", "Physics")
-    concepts = state.get("concepts", [])
+    topic     = state.get("topic", "Physics")
+    concepts  = state.get("concepts", [])
     retrieval = state.get("retrieval", {})
 
     lines = [
@@ -324,7 +276,6 @@ def generate_structured_response(state: QueryState) -> str:
 
 
 def extract_citations(retrieval: dict) -> list:
-    """Extract citation strings from retrieval results."""
     citations = []
 
     for r in retrieval.get("raptor_results", [])[:2]:
@@ -350,10 +301,6 @@ def extract_citations(retrieval: dict) -> list:
 # ── validator ─────────────────────────────────────────────────────────────────
 
 def validate_solution(state: QueryState) -> QueryState:
-    """
-    Basic validation — check solution has content and confidence is reasonable.
-    Routes to fallback if confidence < 0.5.
-    """
     solution   = state.get("solution", "")
     confidence = state.get("confidence", 0.0)
 
@@ -364,7 +311,6 @@ def validate_solution(state: QueryState) -> QueryState:
 
 
 def should_retry(state: QueryState) -> str:
-    """Conditional edge — retry if confidence too low."""
     if state.get("confidence", 1.0) < 0.4 and state.get("retry_count", 0) < 1:
         return "retry"
     return "end"
@@ -373,7 +319,6 @@ def should_retry(state: QueryState) -> str:
 # ── graph assembly ────────────────────────────────────────────────────────────
 
 def build_agent():
-    """Build and compile the LangGraph state machine."""
     from langgraph.graph import StateGraph, END
 
     workflow = StateGraph(QueryState)
@@ -385,10 +330,10 @@ def build_agent():
     workflow.add_node("validate",          validate_solution)
 
     workflow.set_entry_point("classify_topic")
-    workflow.add_edge("classify_topic",   "extract_concepts")
-    workflow.add_edge("extract_concepts", "retrieve")
-    workflow.add_edge("retrieve",         "generate_solution")
-    workflow.add_edge("generate_solution","validate")
+    workflow.add_edge("classify_topic",    "extract_concepts")
+    workflow.add_edge("extract_concepts",  "retrieve")
+    workflow.add_edge("retrieve",          "generate_solution")
+    workflow.add_edge("generate_solution", "validate")
 
     workflow.add_conditional_edges(
         "validate",
@@ -409,7 +354,7 @@ def solve(problem_text: str) -> dict:
     Main entry point — solve a physics problem.
     Returns dict with solution, confidence, citations, topic, concepts, trace_url.
     """
-    from langchain_core.tracers.context import collect_runs
+    from langsmith import Client
 
     agent = build_agent()
 
@@ -426,13 +371,10 @@ def solve(problem_text: str) -> dict:
         error          = None,
     )
 
-    from langsmith import Client
-
     with collect_runs() as cb:
         final_state = agent.invoke(initial_state)
         run_id = cb.traced_runs[0].id if cb.traced_runs else None
 
-# share the run publicly
     trace_url = None
     if run_id:
         try:
@@ -441,7 +383,6 @@ def solve(problem_text: str) -> dict:
         except Exception as e:
             print(f"LangSmith share failed: {type(e).__name__}: {e}")
             trace_url = "https://smith.langchain.com"
-
 
     return {
         "topic":      final_state.get("topic"),
@@ -462,7 +403,7 @@ if __name__ == "__main__":
     result = solve(problem)
 
     print(f"Topic    : {result['topic']}")
-    print(f"Concepts : {result['concepts']}")
+    print(f"Concepts : {result.get('concepts')}")
     print(f"Confidence: {result['confidence']:.2f}")
     print(f"\nCitations:")
     for c in result.get("citations", []):
