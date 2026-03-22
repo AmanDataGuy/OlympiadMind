@@ -1,0 +1,745 @@
+{
+  "n_problems": 37,
+  "results": [
+    {
+      "doc_id": "IPhO_2022_S3",
+      "problem_text": "Propagating errors are not punished except (a) those cases when the (possibly intermediate) result is clearly wrong and hence, the contestant has another opportunity to figure out that something must ",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-MRwKaO1KR5lDkNgaASW6qR\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 133.17,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4590
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-8TTUzwbyqK7LsusqAz2kZn\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:08<00:17,  8.51s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.75s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.98s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:15,  ",
+        "latency": 48.43,
+        "has_equations": false,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4372
+      }
+    },
+    {
+      "doc_id": "IPhO_1972_Q1",
+      "problem_text": "Three cylinders with the same mass, the same length and the same external radius are initially resting on an inclined plane. The coefficient of sliding friction on the inclined plane, μ, is known and ",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-hQ3ebMXrDQaQdB9T3MDiBU\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 53.33,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3873
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-zyjBXI7NF8BrOFNKadBRIu\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:10<00:20, 10.33s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:10<00:04,  4.37s/it]Fetching 3 files: 100%|██████████| 3/3 [00:10<00:00,  3.51s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:10,  ",
+        "latency": 64.35,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4224
+      }
+    },
+    {
+      "doc_id": "NBPhO_2018_S4",
+      "problem_text": "Since all three bodies move along the same trajectory, they must be T/3 away from each other at any moment of time. Thus, it takes T/3 to get from O2 to O.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-5VKLXX741xhGqgUQeF0wEv\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 51.19,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4302
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-VYsyiYpP27uYyj4hmn7oxq\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:29<00:58, 29.03s/it]Fetching 3 files: 100%|██████████| 3/3 [00:29<00:00,  9.68s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:16,  3.77it/s]\n\u001b[1ALoading weights:   4%|▍         | 13/291 [00:00<00:06,",
+        "latency": 72.93,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3736
+      }
+    },
+    {
+      "doc_id": "IPhO_1987_S4",
+      "problem_text": "Solution of problem 4: a) Calculation of the refractive index of the prism. First method: Draw a straight line A–B on a sheet of paper and let this be your line of sight.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-TbhdrSYgRRmK7n7um5fyJ6\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 60.27,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4427
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-2sbpeXOGVfi7t9EN66bZz2\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:14,  7.33s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:07<00:03,  3.25s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.58s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:14,  ",
+        "latency": 54.89,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4312
+      }
+    },
+    {
+      "doc_id": "IPhO_2017_Q3",
+      "problem_text": "Due to the relative movement of galaxies observed from the earth, the wavelength of visible spectrum of a particular galaxy differs from its original wavelength, which is known as the electromagnetic ",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-GvihxhSVgGql0STc9n5fgU\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 57.82,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4506
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-bdhzMt7HdBMXzokQheupuA\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:50<01:41, 50.84s/it]Fetching 3 files:  67%|██████▋   | 2/3 [00:51<00:21, 21.17s/it]Fetching 3 files: 100%|██████████| 3/3 [00:51<00:00, 17.08s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:54,  5.28i",
+        "latency": 95.54,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 3451
+      }
+    },
+    {
+      "doc_id": "IPhO_2020_S1",
+      "problem_text": "A narrow straight channel passes through the center of a fixed cube with a side a. The cube is uniformly charged, the charge density is ρ. The distance from the cube center to the point of intersectio",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-5sr4mgUV8WjifbcQtGqJ9T\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 47.71,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4088
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-d528dINAk3lqGs46JJlCPV\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:08<00:17,  8.52s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.75s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.98s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:18,  ",
+        "latency": 56.85,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4316
+      }
+    },
+    {
+      "doc_id": "NBPhO_2009_S10",
+      "problem_text": "From the Newton II law, m(dv/dt) + α(dx/dt) = 0. Multiplying this equation by dt, we obtain dv + (α/m)dx = 0. Integrating (i.e. summing over all the small increments dx and dv) this equation leads us ",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-iMYMfi3CvIp6GpPsWIGhqw\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 42.18,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3639
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-4n3DaPJjVlbqPJnN9GFzKN\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:15,  7.72s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.77s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.91s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:11,  ",
+        "latency": 62.39,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3837
+      }
+    },
+    {
+      "doc_id": "IPhO_2011_Q1",
+      "problem_text": "Two gravitating masses M and m are moving in circular orbits of radii R and r, respectively, about their common centre of mass. Find the angular velocity ω_o of the line joining M and m in terms of R,",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-UM7VVJg6Mx2YJYmj4r6ydc\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 55.62,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4725
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-VshdESSOFEN3iEAkXGYxP6\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:17<00:35, 17.72s/it]Fetching 3 files:  67%|██████▋   | 2/3 [00:18<00:07,  7.53s/it]Fetching 3 files: 100%|██████████| 3/3 [00:18<00:00,  6.04s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<02:18,  2.09i",
+        "latency": 68.58,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4592
+      }
+    },
+    {
+      "doc_id": "IPhO_1981_Q4",
+      "problem_text": "Materials and Instruments: elastic rubber cord (the length of free cord is l0 = 150 mm), vertically hanged up to a stand, set of weights from 10 g to 100 g, pan for the weights with mass 5 g, chronome",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-3aPDNMLoHAaBQ6Ih1LmESp\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 48.83,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4247
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-AmGSTD7tUvTLo90VkyjV2y\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:15,  7.92s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.64s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:12,  3.99it/s]\n\u001b[1ALoading weights:   6%|▌         | 18/291 [00:00<00:04,",
+        "latency": 49.75,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3896
+      }
+    },
+    {
+      "doc_id": "NBPhO_2017_S4",
+      "problem_text": "First we have to note that the diameter of the bowl and the height of the dragon give inconsistent results. Because the distance between the two images of the dragons is relatively small compared to t",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-0vuSTOg7XwS1nAohPAj0nb\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 51.55,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4548
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-AbhVbPzlIgpCsCeqNSriJ9\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:14,  7.29s/it]Fetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.53s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.73s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:59,  4.85i",
+        "latency": 53.43,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4434
+      }
+    },
+    {
+      "doc_id": "APhO_2015_S3",
+      "problem_text": "Figure 1 shows a Fabry-Perot (F-P) etalon, in which air pressure is tunable. The F-P etalon consists of two glass plates with high-reflectivity inner surfaces.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-yeIATm6PgsC3hb7biakob2\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 64.37,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4603
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-6q0v1kdph5yHa1KRpxke02\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:08<00:16,  8.32s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.79s/it]\n\u001b[1AFetching 3 files: 100%|██████████| 3/3 [00:09<00:00,  2.14s/it]Fetching 3 files: 100%|██████████| 3/3 [00:09<00:00,  3.04s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?",
+        "latency": 56.12,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4128
+      }
+    },
+    {
+      "doc_id": "NBPhO_2013_S6",
+      "problem_text": "The prism is acted on by three forces: reaction force R̄_l from the left-hand face; reaction force R̄_r from the right-hand face, directed horizontally; and gravitational force mg, directed vertically",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-8MfLkC2TZ5Y8VWEtUS3yyX\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 111.45,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4941
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-7N5iy1kfVnnPOS9T8oAtH8\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [00:06<00:13,  6.92s/it]Fetching 3 files: 100%|██████████| 3/3 [00:06<00:00,  2.31s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:05,  4.43it/s]\n\u001b[1ALoading weights:   4%|▍         | 13/291 [00:00<00:06, 43.0",
+        "latency": 52.08,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4145
+      }
+    },
+    {
+      "doc_id": "IPhO_2019_S3",
+      "problem_text": "The boundary conditions are: u(0,t) = u(L,t) = 0. As a result, sin(2π/λ · L) = 0, so we get λ_max = 2L.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-R8EmaeqaU8UWfG8FZakHMr\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:08<00:17,  8.84s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.95s/it]\n\n\u001b[1ALoading weights:   0%|        ",
+        "latency": 44.27,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 2811
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-YHJzkDdHDp57TXS1Wy8nlT\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:14,  7.10s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.51s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.70s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:11,  ",
+        "latency": 51.89,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4400
+      }
+    },
+    {
+      "doc_id": "APhO_2014_S3",
+      "problem_text": "Draw a diagram to describe the physical layout of an ideal (observer, lens and point source in a straight line) lensing system. Draw the light path and mark the quantities α and r_E.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-0Yz2Eo1dzdTf2QtTxMhmze\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 58.45,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 3921
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-V8ZXLMsgUT4PEsLEoHkYdp\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [00:05<00:11,  5.63s/it]Fetching 3 files: 100%|██████████| 3/3 [00:05<00:00,  1.88s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:09,  4.20it/s]\n\u001b[1ALoading weights:   8%|▊         | 22/291 [00:00<00:04, 64.2",
+        "latency": 55.12,
+        "has_equations": false,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4320
+      }
+    },
+    {
+      "doc_id": "WoPhO_2011_Q11",
+      "problem_text": "In this problem, the motion of a uniform rod (stick) with length L, ended with caster-wheels at both ends, will be investigated on a flat surface. The casters at each end of the rod can spin freely an",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-Pzq2do6lnXJm8T9b4UuWx0\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 55.03,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4635
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-7Q10za6eyMrcmceYbeQ3If\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:15,  7.63s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.55s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:41,  6.94it/s]\n\u001b[1ALoading weights:   8%|▊         | 22/291 [00:00<00:02,",
+        "latency": 50.38,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 3332
+      }
+    },
+    {
+      "doc_id": "RMPh_2012_Q5",
+      "problem_text": "The goals of this experimental task are: determining the constant of a diffraction grid; determining the wavelength of a pointer laser with green light; determining a specific characteristic of some '",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-XADeFSFjDDhmunnp85I8iq\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\n`torch_dtype` is deprecated! Use `dtype` instead!\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 51.26,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4604
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-jRuucuNTdzPALIfnJEQroQ\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:06<00:13,  6.50s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:07<00:03,  3.04s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.37s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:50,  ",
+        "latency": 52.65,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4594
+      }
+    },
+    {
+      "doc_id": "APhO_2014_Q3",
+      "problem_text": "Gravitational lensing is a phenomenon where light from a distant source may be deflected by the curvature of space-time caused by a massive lensing object close to or in the line of sight between an o",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-1PxgxUvEDGAhg7QmGzGjg3\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎  ",
+        "latency": 52.89,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4151
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-phMcLC7IbIbyZTRhmFg7hu\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:15,  7.91s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.52s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.79s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:14,  ",
+        "latency": 60.86,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4205
+      }
+    },
+    {
+      "doc_id": "IPhO_2013_Q4",
+      "problem_text": "A laser distance meter (LDM) consists of an emitter and a receiver. The emitter is a diode laser that emits a modulated laser beam, i.e. a laser beam for which the amplitude varies at a very high freq",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-23jCO7sInRofDyirMhmQfJ\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 50.94,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3841
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-TEfhVQaeUePirB97pQl5E3\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:15,  7.74s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.66s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.85s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:01,  ",
+        "latency": 54.2,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4333
+      }
+    },
+    {
+      "doc_id": "IPhO_2007_S4",
+      "problem_text": "If 'a' is the distance between card and the grating and 'r' is the distance between the hole and the light spot so we have",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-PdINxdiJFPj9iQYshUBhBG\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 57.54,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4272
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-PmGLAqgJdODB5mlM9MIjqu\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:14,  7.32s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:07<00:03,  3.13s/it]\n\u001b[1AFetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  1.79s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.57s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?",
+        "latency": 51.23,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4095
+      }
+    },
+    {
+      "doc_id": "IPhO_1974_Q4",
+      "problem_text": "In a \"black box\" there are two identical semiconducting diodes and one resistor connected in some unknown way. By using instruments provided by the organizers find the resistance of the resistor.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-cOyeoyAe4ZdGBjRktpT9ri\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 51.19,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4662
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-HlLzHYELOPat0KywvEZ5tr\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:14,  7.32s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:07<00:03,  3.25s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.57s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:07,  ",
+        "latency": 53.75,
+        "has_equations": false,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4199
+      }
+    },
+    {
+      "doc_id": "IPhO_1975_Q4",
+      "problem_text": "In this experiment a semiconductor element (—[xxxx]—), an adjustable resistor (up to 140 Ω), a fixed resistor (300 Ω), a 9-V-direct voltage source, cables and two multimeters are at disposal. It is no",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-82DoIsGtdvdnZ0Appf2YH9\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 54.83,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3645
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-tdUOHO0h6XFcwwfEuUnIHT\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:06<00:12,  6.31s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:06<00:02,  2.84s/it]Fetching 3 files: 100%|██████████| 3/3 [00:06<00:00,  2.24s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:20,  ",
+        "latency": 51.39,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4110
+      }
+    },
+    {
+      "doc_id": "IPhO_2011_S2",
+      "problem_text": "The bubble is surrounded by air. Cutting the sphere in half and using the projected area to balance the forces give.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-Eya9z2I0tFRUF6CZLBZJdp\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 46.71,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4209
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-PI2d37CtQghgcelHjSNq4N\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [00:07<00:14,  7.12s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.37s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:52,  5.50it/s]\n\u001b[1ALoading weights:   5%|▍         | 14/291 [00:00<00:05, 54.2",
+        "latency": 52.17,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4341
+      }
+    },
+    {
+      "doc_id": "APhO_2018_Q3",
+      "problem_text": "Thermoelectric effects in conducting materials are due to the interplay between heat current and electrical current. In this problem we consider only three predominant thermoelectric effects, namely t",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-myhvdqTYy8FTcpIX1v6PUF\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 54.88,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4821
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-J5te4aN3l5lhtr2GBC9wTn\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:06<00:12,  6.12s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:06<00:02,  2.88s/it]Fetching 3 files: 100%|██████████| 3/3 [00:06<00:00,  2.24s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:58,  ",
+        "latency": 50.16,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4369
+      }
+    },
+    {
+      "doc_id": "IPhO_2001_Q4",
+      "problem_text": "The time available is 5 hours for the experimental competition. Use only the pen provided. Use only the front side of the paper. Begin each part of the problem on a separate sheet.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-onTG58zSMNC2fJdyO903L7\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 51.9,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4584
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-kD0uAOARSTJypEMJ9KdX8Z\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:14,  7.08s/it]Fetching 3 files:  67%|██████▋   | 2/3 [00:07<00:03,  3.40s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.63s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:05,  4.44i",
+        "latency": 48.46,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3584
+      }
+    },
+    {
+      "doc_id": "RMPh_2017_Q3",
+      "problem_text": "Geoffrey I. Taylor assumed that the radius R of the radioactive cloud, that appears as a result of the detonation of an atomic bomb into the air depends only on the time t elapsed since the explosion,",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-deY3gQ2O5XhLjn9P8L1Kin\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\n`torch_dtype` is deprecated! Use `dtype` instead!\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 55.4,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4381
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-iwazR4X416zNyWJpHCwXsa\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:15,  7.84s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.59s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.82s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:51,  ",
+        "latency": 48.87,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 3686
+      }
+    },
+    {
+      "doc_id": "NBPhO_2021_S3",
+      "problem_text": "At non-relativistic speeds, we can apply classical momentum and energy conservation to find the acceleration in terms of the antimatter burning rate μ. In a time interval Δt, a mass of Δm = μΔt antima",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-aoB83Htxbd3uddZpKPzQ9E\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 51.77,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4429
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-aNKpfZRRXNslvRlIZ87OHM\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:06<00:13,  6.52s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:07<00:03,  3.30s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.52s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:18,  ",
+        "latency": 52.33,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4530
+      }
+    },
+    {
+      "doc_id": "IPhO_2010_S1",
+      "problem_text": "As the metallic sphere is grounded, its potential vanishes, V=0. Let us consider an arbitrary point B on the surface of the sphere as depicted in Fig. 1.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-s6104zgDWkxp9mOOO4molk\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 59.98,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5211
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-paTEa3lAzVUn4GqIoYjK03\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:05<00:11,  5.64s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:06<00:02,  2.55s/it]Fetching 3 files: 100%|██████████| 3/3 [00:06<00:00,  2.01s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:05,  ",
+        "latency": 45.07,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": false,
+        "solution_length": 4136
+      }
+    },
+    {
+      "doc_id": "NBPhO_2012_Q8",
+      "problem_text": "Consider a hypothetical asteroid of mass m_a and radius r_a, which moves along an elliptical orbit around the Sun (of mass M_s) in the same plane as Earth. Let us assume that the Earth's orbit is a ci",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-9hl3F5PngTpYj4O0uIDxJD\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 55.89,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4532
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-BgN7LZezAYsjICUCDrSEbE\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:06<00:13,  6.90s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:07<00:02,  2.95s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.36s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:12,  ",
+        "latency": 61.99,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5046
+      }
+    },
+    {
+      "doc_id": "RMPh_2018_Q4",
+      "problem_text": "Experimental problem suggests you that using only one calibrated measuring instrument – a stopwatch – and a few other simple objects and devices, to determine various characteristics of polycrystallin",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-SrpO6qUsQ7fLZgKScQwleO\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\n`torch_dtype` is deprecated! Use `dtype` instead!\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 58.98,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5235
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-Joje8NhX57b70CmYyJAdW1\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:08<00:16,  8.32s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.66s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.91s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:22,  ",
+        "latency": 59.76,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5252
+      }
+    },
+    {
+      "doc_id": "NBPhO_2012_S5",
+      "problem_text": "The longer axis of the asteroid 2a = R_max + R_min = 2R_E equals to that of Earth, in the full energy sense, when reduced to the unit mass, are equal. Immediately before the collision, the Earth and t",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-pRLojF1tSLu3iLYVXpRlCL\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 83.57,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5111
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-xhp2MRfyO3bI6R0NlcgEXd\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:09<00:19,  9.71s/it]Fetching 3 files:  67%|██████▋   | 2/3 [00:10<00:04,  4.24s/it]Fetching 3 files: 100%|██████████| 3/3 [00:10<00:00,  3.38s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:33,  3.09i",
+        "latency": 68.59,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5535
+      }
+    },
+    {
+      "doc_id": "APhO_2007_S2",
+      "problem_text": "Assume E-D shows one of the wavefronts of the refracted light. According to the Huygens' principle the phase accumulation from A to E should be equal to that from B via C to D.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-w4uQC2Zx4QSGvj19yINKkI\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 63.59,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5065
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-gZknj1al0Ao7pFUlM39Lmn\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:07<00:14,  7.12s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.37s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:49,  5.87it/s]\n\u001b[1ALoading weights:   4%|▍         | 13/291 [00:00<00:04,",
+        "latency": 52.53,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4168
+      }
+    },
+    {
+      "doc_id": "IPhO_1993_S3",
+      "problem_text": "By symmetry, the electric field will point radially away from the wire, and its magnitude will depend only on the radius r (in cylindrical coordinates). Place an imaginary cylinder around the wire and",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-vM1oWoXrBbIETAc0hUSE7L\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 58.07,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4249
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-OtQUV20J9qZLq9lKM6vL1e\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:32<01:04, 32.23s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [01:05<00:32, 32.69s/it]Fetching 3 files: 100%|██████████| 3/3 [01:16<00:00, 22.69s/it]Fetching 3 files: 100%|██████████| 3/3 [01:16<00:00, 25.35s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it",
+        "latency": 116.18,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4043
+      }
+    },
+    {
+      "doc_id": "APhO_2005_S2",
+      "problem_text": "There exist many devices that utilize fine beams of charged particles. The cathode ray tube used in oscilloscopes, in television receivers or in electron microscopes focuses the particle beam in much ",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-UYA3HpqxBzuEu17gqMBnf9\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 62.01,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5609
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-AldKr6cg5ewhtMYZeo5Onl\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:12<00:24, 12.44s/it]Fetching 3 files: 100%|██████████| 3/3 [00:12<00:00,  4.15s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<02:27,  1.97it/s]\n\u001b[1ALoading weights:   4%|▍         | 13/291 [00:00<00:10,",
+        "latency": 58.81,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4281
+      }
+    },
+    {
+      "doc_id": "RMPh_2014_Q3",
+      "problem_text": "In this problem we will explore the physics of black holes — astrophysical objects so massive that no object, not even a photon, can escape from it if it gets sufficiently close.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-YZd7kq3ijZsHcXuw4uuQ2k\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 57.64,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 3486
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-rQRyzC4E498NtntRtS7SpL\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:06<00:13,  6.92s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:07<00:03,  3.32s/it]Fetching 3 files: 100%|██████████| 3/3 [00:07<00:00,  2.57s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:04,  ",
+        "latency": 54.14,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4254
+      }
+    },
+    {
+      "doc_id": "IPhO_1968_Q4",
+      "problem_text": "Three closed boxes (black boxes) with two plug sockets on each are present for investigation. The participants have to find out, without opening the boxes, what kind of elements are in them and measur",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-zM8jBQx4KucJHz7M9AeTtA\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 58.83,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4294
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-llx1TBkbjTwLWcoTCHK6MH\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:06<00:12,  6.08s/it]Fetching 3 files: 100%|██████████| 3/3 [00:06<00:00,  2.03s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<00:56,  5.10it/s]\n\u001b[1ALoading weights:   5%|▌         | 15/291 [00:00<00:04,",
+        "latency": 54.97,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 5129
+      }
+    },
+    {
+      "doc_id": "IPhO_2004_Q2",
+      "problem_text": "A rubber balloon filled with helium gas goes up high into the sky where the pressure and temperature decrease with height. Assume that the shape of the balloon remains spherical regardless of the payl",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-zwfMOUKPf0rhe3KgDO4Ups\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 55.15,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4709
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-gttWwsLWVEinQuSOzslPY9\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:09<00:18,  9.12s/it]Fetching 3 files: 100%|██████████| 3/3 [00:09<00:00,  3.06s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:09,  4.17it/s]\n\u001b[1ALoading weights:   5%|▍         | 14/291 [00:00<00:05,",
+        "latency": 59.96,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4631
+      }
+    },
+    {
+      "doc_id": "IPhO_2013_S4",
+      "problem_text": "Use the LDM to measure the distance H from the top of the table to the floor. Write down the uncertainty ΔH. Show with a sketch how you perform this measurement.",
+      "olympiadmind": {
+        "solution": "✓ Initialized. View run at \nhttps://modal.com/apps/umang2001umang/main/ap-upBdmjInH0ULmsUcWvvYOJ\n✓ Created objects.\n├── 🔨 Created mount D:\\projects\\OlympiadMind\\src\\agent\\modal_solver.py\n└── 🔨 Created function run_mistral.\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|█",
+        "latency": 66.58,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 6672
+      },
+      "zero_shot": {
+        "solution": "https://modal.com/apps/umang2001umang/main/ap-kdnaYXM4BlmmgsVrA8G6Hs\n`torch_dtype` is deprecated! Use `dtype` instead!\n\n\u001b[1AFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\n\u001b[1AFetching 3 files:  33%|███▎      | 1/3 [00:08<00:17,  8.52s/it]\n\u001b[1AFetching 3 files:  67%|██████▋   | 2/3 [00:08<00:03,  3.62s/it]Fetching 3 files: 100%|██████████| 3/3 [00:08<00:00,  2.90s/it]\n\n\u001b[1ALoading weights:   0%|          | 0/291 [00:00<?, ?it/s]\n\u001b[1ALoading weights:   0%|          | 1/291 [00:00<01:06,  ",
+        "latency": 53.63,
+        "has_equations": true,
+        "has_steps": true,
+        "has_answer": true,
+        "solution_length": 4410
+      }
+    }
+  ]
+}

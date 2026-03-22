@@ -18,13 +18,22 @@ def run_mistral(prompt: str) -> str:
     formatted = f"[INST] {prompt} [/INST]"
     inputs    = tokenizer(formatted, return_tensors="pt").to("cuda")
     with torch.no_grad():
-        output = model.generate(**inputs, max_new_tokens=500, do_sample=False)
+        output = model.generate(**inputs, max_new_tokens=800, do_sample=False)
     generated = output[0][inputs["input_ids"].shape[1]:]
-    return tokenizer.decode(generated, skip_special_tokens=True).strip()
+    response  = tokenizer.decode(generated, skip_special_tokens=True).strip()
+
+    # remove prompt echo if model repeated the problem statement
+    if response.startswith("Problem:"):
+        lines    = response.split("\n")
+        response = "\n".join(lines[1:]).strip()
+
+    return response
 
 @app.local_entrypoint()
 def main(prompt_path: str):
     with open(prompt_path, encoding="utf-8") as f:
         prompt = f.read()
     result = run_mistral.remote(prompt)
+    print("===SOLUTION_START===")
     print(result)
+    print("===SOLUTION_END===")
