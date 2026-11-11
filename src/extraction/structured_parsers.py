@@ -1,7 +1,7 @@
 """
 structured_parsers.py
 ---------------------
-Step 2.6 — Structured Format Parsers
+Structured Format Parsers
 
 Parses non-standard document formats into structured JSON:
 

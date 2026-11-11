@@ -1,7 +1,7 @@
 """
 app.py
 ------
-Phase 7 — OlympiadMind Streamlit Frontend
+OlympiadMind Streamlit Frontend
 
 4 pages:
   1. Problem Solver  — solve physics problems with full pipeline

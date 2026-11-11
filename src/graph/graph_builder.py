@@ -1,7 +1,7 @@
 """
 graph_builder.py
 ----------------
-Phase 4 — Neo4j Knowledge Graph Builder
+Neo4j Knowledge Graph Builder
 
 Reads data/extracted/documents.jsonl and writes every document
 as a Problem node in Neo4j with metadata for filtering.
@@ -12,8 +12,8 @@ Node properties stored:
   - equation_count, figure_count
   - total_pages
 
-Does NOT write concept relationships yet — those come after
-concept extraction in Phase 4.5.
+Does NOT write concept relationships yet — those come from
+src/graph/concept_extractor_modal.py.
 
 Output: Problem nodes in Neo4j AuraDB
 """

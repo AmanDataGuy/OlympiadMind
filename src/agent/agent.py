@@ -1,7 +1,7 @@
 """
 agent.py
 --------
-Phase 5.2 — LangGraph Physics Problem Solving Agent
+LangGraph Physics Problem Solving Agent
 
 State machine that takes a physics problem and returns a step-by-step solution.
 
@@ -9,7 +9,7 @@ Flow:
   classify_topic → extract_concepts → retrieve → generate → validate → END
 
 Uses:
-  - Fine-tuned Gemma 2B for concept extraction (Phase 8 — falls back to keyword)
+  - Fine-tuned Gemma 2B for concept extraction (falls back to keyword)
   - Hybrid retriever (RAPTOR + Neo4j + FAISS)
   - Mistral 7B via Modal for solution generation
 """

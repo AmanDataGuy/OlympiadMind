@@ -1,16 +1,19 @@
 """
 main.py
 -------
-Phase 7.1 — FastAPI Backend
+FastAPI Backend
 
 REST API wrapping the OlympiadMind agent and Neo4j graph.
 
 Routes:
-  POST /v1/solve       — solve a physics problem
-  GET  /v1/problems    — search problems by filters
-  GET  /v1/similar     — find similar problems via Neo4j
-  GET  /v1/health      — pipeline status
-  POST /mcp/solve      — MCP-compatible tool endpoint
+  POST /solve             — solve a physics problem
+  POST /problems          — search problems by filters
+  GET  /similar/{doc_id}  — find similar problems via Neo4j
+  GET  /concepts/{doc_id} — concepts a problem requires
+  GET  /stats             — graph and corpus counts
+  GET  /health            — pipeline status
+  POST /mcp/solve         — MCP-compatible tool endpoint
+  GET  /mcp/tools         — MCP tool manifest
 """
 
 import json
@@ -28,7 +31,6 @@ load_dotenv()
 app = FastAPI(
     title       = "OlympiadMind API",
     description = "Multimodal physics problem solver with RAPTOR + Neo4j + FAISS hybrid retrieval",
-    version     = "1.0.0",
 )
 
 app.add_middleware(
@@ -87,12 +89,11 @@ class MCPToolCall(BaseModel):
 
 # ── routes ────────────────────────────────────────────────────────────────────
 
-@app.get("/v1/health")
+@app.get("/health")
 def health():
     """Check pipeline status."""
     return {
         "status":    "ok",
-        "version":   "1.0.0",
         "components": {
             "neo4j":   os.getenv("NEO4J_URI") is not None,
             "raptor":  Path("data/raptor/raptor.faiss").exists(),
@@ -101,7 +102,7 @@ def health():
     }
 
 
-@app.post("/v1/solve", response_model=SolveResponse)
+@app.post("/solve", response_model=SolveResponse)
 def solve(request: SolveRequest):
     """
     Solve a physics problem using the full OlympiadMind pipeline.
@@ -126,7 +127,7 @@ def solve(request: SolveRequest):
     )
 
 
-@app.post("/v1/problems")
+@app.post("/problems")
 def search_problems(request: ProblemSearchRequest):
     """
     Search problems in Neo4j by source, competition, year, or topic.
@@ -171,7 +172,7 @@ def search_problems(request: ProblemSearchRequest):
     return {"count": len(records), "problems": records}
 
 
-@app.get("/v1/similar/{doc_id}")
+@app.get("/similar/{doc_id}")
 def get_similar(doc_id: str, limit: int = 5):
     """
     Find problems similar to the given doc_id via SIMILAR_TO edges in Neo4j.
@@ -195,7 +196,7 @@ def get_similar(doc_id: str, limit: int = 5):
     return {"doc_id": doc_id, "similar": similar}
 
 
-@app.get("/v1/concepts/{doc_id}")
+@app.get("/concepts/{doc_id}")
 def get_concepts(doc_id: str):
     """Get all concepts required by a specific problem."""
     driver = get_driver()
@@ -211,7 +212,7 @@ def get_concepts(doc_id: str):
     return {"doc_id": doc_id, "concepts": concepts}
 
 
-@app.get("/v1/stats")
+@app.get("/stats")
 def get_stats():
     """Graph statistics from Neo4j."""
     driver = get_driver()

@@ -1,7 +1,7 @@
 """
 describe_figures.py
 -------------------
-Step 2.3b — Figure Description with Qwen2-VL
+Figure Description with Qwen2-VL
 
 Second pass — reads saved figure images from extract_figures_fast.py
 and adds structured descriptions using Qwen2-VL 2B.

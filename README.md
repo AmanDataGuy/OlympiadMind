@@ -129,21 +129,6 @@ OlympiadMind ingests 1,120 Physics Olympiad PDFs across 8 source types, 3 langua
 
 ---
 
-## Project Status
-
-| Phase | Description | Status |
-|---|---|---|
-| 1 | Dataset audit + content classification | ✅ Complete |
-| 2 | Multimodal extraction pipeline | ✅ Complete |
-| 3 | External knowledge corpus | ✅ Complete |
-| 4 | Neo4j knowledge graph | ✅ Complete |
-| 5 | RAPTOR + hybrid retrieval + LangGraph agent | ✅ Complete |
-| 6 | Benchmark evaluation | ✅ Complete |
-| 7 | FastAPI + Streamlit frontend | ✅ Complete |
-| 8 | Gemma 2B fine-tuning | ✅ Complete |
-
----
-
 ## How to Run
 
 Code lives on GitHub. Data and the fine-tuned adapter live on Hugging Face:
@@ -155,14 +140,14 @@ Code lives on GitHub. Data and the fine-tuned adapter live on Hugging Face:
 | Extracted docs, raw PDFs | same dataset (`extracted/`, `raw/`) | only to rebuild the graph or pipeline |
 | Gemma 2B concept adapter | [amanDS5153/olympiadmind-gemma-physics](https://huggingface.co/amanDS5153/olympiadmind-gemma-physics) | no, used only on a CUDA GPU (falls back to keywords) |
 
-### 1. Prerequisites
+### Prerequisites
 
 - Python 3.11 (or Docker)
 - A [Neo4j AuraDB](https://neo4j.com/cloud/aura/) instance (free tier works)
 - A [Modal](https://modal.com) account. Mistral 7B runs there on an A10G
 - Optional: a [LangSmith](https://smith.langchain.com) key for traces, a Hugging Face token
 
-### 2. Clone and configure
+### Clone and configure
 
 ```bash
 git clone https://github.com/AmanDataGuy/OlympiadMind
@@ -177,7 +162,7 @@ cp .env.example .env
 | `LANGCHAIN_API_KEY`, `LANGCHAIN_PROJECT`, `LANGCHAIN_TRACING_V2` | optional, LangSmith traces |
 | `HF_TOKEN` | optional for downloads; needed for the gated Gemma base model on GPU |
 
-### 3. Pull the data
+### Pull the data
 
 ```bash
 pip install -U huggingface_hub
@@ -185,14 +170,14 @@ pip install -U huggingface_hub
 # runtime only: FAISS corpus index + chunks (~150MB)
 hf download amanDS5153/olympiadmind-data --repo-type dataset --include "corpus/*" --local-dir data
 
-# add this if you need to fill an empty Neo4j instance (step 4): merged documents (~12MB)
+# add this if you need to fill an empty Neo4j instance ("Fill Neo4j" below): merged documents (~12MB)
 hf download amanDS5153/olympiadmind-data --repo-type dataset --include "extracted/documents.jsonl" --local-dir data
 
 # everything: raw PDFs, figures, OCR output (~1.7GB)
 hf download amanDS5153/olympiadmind-data --repo-type dataset --local-dir data
 ```
 
-### 4. Fill Neo4j (first time only)
+### Fill Neo4j (first time only)
 
 Skip this if your Aura instance already holds the graph. For a new, empty instance:
 
@@ -203,7 +188,7 @@ python src/graph/graph_builder.py      # 1,096 Problem nodes from extracted/docu
 python scripts/write_concepts_neo4j.py # Concept nodes + REQUIRES edges from corpus/concept_labels.jsonl
 ```
 
-`/v1/similar` and the Graph Explorer also use `SIMILAR_TO` edges, which no script creates. Make them in the Aura
+`/similar` and the Graph Explorer also use `SIMILAR_TO` edges, which no script creates. Make them in the Aura
 query console (approximation: links problems that share two or more concepts):
 
 ```cypher
@@ -213,7 +198,7 @@ WITH a, b, count(c) AS shared WHERE shared >= 2
 MERGE (a)-[r:SIMILAR_TO]-(b) SET r.shared_concepts = shared
 ```
 
-### 5. Run
+### Run
 
 **Option 1 — Docker**
 ```bash
@@ -231,8 +216,8 @@ FastAPI swagger UI at `localhost:8000/docs` · Streamlit UI at `localhost:8501`
 
 Smoke test:
 ```bash
-curl localhost:8000/v1/health
-curl -X POST localhost:8000/v1/solve -H "Content-Type: application/json" \
+curl localhost:8000/health
+curl -X POST localhost:8000/solve -H "Content-Type: application/json" \
   -d '{"problem_text": "A charged particle enters a uniform magnetic field B with velocity v. Find the radius of its path."}'
 ```
 
@@ -241,16 +226,16 @@ still returns the retrieved context with a short structured answer.
 
 ### Rebuild from the source PDFs (optional)
 
-Download the full dataset, then run the stages in order. Each one reads the previous stage's output under `data/`.
+Download the full dataset, then run these in order. Each one reads the previous one's output under `data/`.
 
-| Stage | Command |
+| What | Command |
 |---|---|
 | Inventory + page classification | `python scripts/inventory.py`, `python src/extraction/classifier.py` |
 | Extraction | `python src/extraction/text_extractor.py`, `equation_extractor.py`, `extract_figures_fast.py`, `describe_figures.py`, `scanned_ocr.py`, `hindi_extractor.py`, `structured_parsers.py` (all in `src/extraction/`) |
 | Merge + quality report | `python src/extraction/merger.py`, `python src/extraction/quality.py` |
 | Knowledge corpus | `python src/corpus/wikipedia_ingest.py`, `stackexchange_ingest.py`, `arxiv_ingest.py`, then `embedder.py` (all in `src/corpus/`) |
 | Concept labels (Llama 3.1 8B on Modal) | `modal run src/graph/concept_extractor_modal.py` |
-| Neo4j graph | step 4 above |
+| Neo4j graph | see "Fill Neo4j" above |
 | RAPTOR tree | `python src/agent/raptor_builder.py` |
 | Gemma fine-tune (GPU) | `python scripts/prepare_finetune_data.py`, `python scripts/finetune_gemma.py`, `python scripts/eval_gemma.py` |
 | Benchmark | `python src/evaluation/benchmark.py` |

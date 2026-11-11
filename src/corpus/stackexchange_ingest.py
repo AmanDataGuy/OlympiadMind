@@ -1,7 +1,7 @@
 """
 stackexchange_ingest.py
 -----------------------
-Step 3.2 — Physics Stack Exchange Ingestion
+Physics Stack Exchange Ingestion
 
 Parses the Physics Stack Exchange XML dump and extracts high-quality
 question-answer pairs for the knowledge corpus.

@@ -1,7 +1,7 @@
 """
 benchmark.py
 ------------
-Phase 6 — Benchmark: OlympiadMind vs Zero-Shot Mistral
+Benchmark: OlympiadMind vs Zero-Shot Mistral
 
 Runs 38 held-out problems through two pipelines:
   1. OlympiadMind — Mistral 7B + RAPTOR + Neo4j + FAISS retrieval

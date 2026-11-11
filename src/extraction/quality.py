@@ -1,7 +1,7 @@
 """
 quality.py
 ----------
-Step 2.8 — Extraction Quality Report
+Extraction Quality Report
 
 Computes per-modality quality metrics against data/evaluation/ground_truth.jsonl:
 

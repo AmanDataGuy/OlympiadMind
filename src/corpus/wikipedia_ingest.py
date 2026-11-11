@@ -1,7 +1,7 @@
 """
 wikipedia_ingest.py
 -------------------
-Step 3.1 — Wikipedia Physics Corpus Ingestion
+Wikipedia Physics Corpus Ingestion
 
 Fetches 30 core physics topic articles from Wikipedia and chunks them
 into 512-token segments with 64-token overlap.

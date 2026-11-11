@@ -1,7 +1,7 @@
 """
 scanned_ocr.py
 --------------
-Step 2.4 — Scanned Page OCR
+Scanned Page OCR
 
 Extracts text from pages classified as 'scanned' or 'unknown' in page_classification.json.
 These are pages where PyMuPDF found no selectable text — content is a raster image.

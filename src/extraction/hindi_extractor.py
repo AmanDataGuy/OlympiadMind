@@ -1,7 +1,7 @@
 """
 hindi_extractor.py
 ------------------
-Step 2.5 — Hindi and Multilingual Extraction
+Hindi and Multilingual Extraction
 
 Two strategies depending on document type:
 

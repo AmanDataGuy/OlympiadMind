@@ -1,7 +1,7 @@
 """
 embedder.py
 -----------
-Step 3.4 — Corpus Embedding + FAISS Index
+Corpus Embedding + FAISS Index
 
 Embeds all corpus chunks using sentence-transformers (all-MiniLM-L6-v2)
 and builds a FAISS IndexFlatIP for cosine similarity search.

@@ -1,7 +1,7 @@
 """
 concept_extractor_modal.py
 --------------------------
-Phase 4.5 — Concept Extraction using Llama 3.1 8B on Modal
+Concept Extraction using Llama 3.1 8B on Modal
 
 Runs Llama 3.1 8B on Modal A10G GPU to extract physics concepts
 from all olympiad problem texts in documents.jsonl.
@@ -11,7 +11,7 @@ Output: data/corpus/concept_labels.jsonl
 
 These labels:
   1. Get written as Concept nodes in Neo4j with REQUIRES edges
-  2. Become training data for Gemma 2B fine-tuning in Phase 8
+  2. Become training data for Gemma 2B fine-tuning
 
 Run with: modal run src/graph/concept_extractor_modal.py
 """

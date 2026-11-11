@@ -1,7 +1,7 @@
 """
 retriever.py
 ------------
-Phase 5 — Hybrid Retriever
+Hybrid Retriever
 
 Combines three retrieval sources for maximum context quality:
 

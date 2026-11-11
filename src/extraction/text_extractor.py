@@ -1,7 +1,7 @@
 """
 text_extractor.py
 -----------------
-Step 2.1 — Typeset Text Extraction
+Typeset Text Extraction
 
 Extracts selectable text from born-digital PDFs using PyMuPDF.
 Handles two-column layouts, sub-question segmentation, and language detection.

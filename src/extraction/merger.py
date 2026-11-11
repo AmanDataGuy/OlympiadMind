@@ -1,17 +1,17 @@
 """
 merger.py
 ---------
-Step 2.7 — Document Merger
+Document Merger
 
 Combines all extraction stream outputs into a single PhysicsDocument
 Pydantic schema per PDF. Reads from:
 
-  data/extracted/text/        — typeset text (Step 2.1)
-  data/extracted/equations/   — LaTeX equations (Step 2.2)
-  data/extracted/figures/     — figure descriptions (Step 2.3)
-  data/extracted/scanned/     — scanned page OCR (Step 2.4)
-  data/extracted/hindi/       — Hindi extraction (Step 2.5)
-  data/extracted/structured/  — structured format parsing (Step 2.6)
+  data/extracted/text/        — typeset text
+  data/extracted/equations/   — LaTeX equations
+  data/extracted/figures/     — figure descriptions
+  data/extracted/scanned/     — scanned page OCR
+  data/extracted/hindi/       — Hindi extraction
+  data/extracted/structured/  — structured format parsing
 
 Output: data/extracted/documents.jsonl — one PhysicsDocument per line
 """

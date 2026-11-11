@@ -1,7 +1,7 @@
 """
 arxiv_ingest.py
 ---------------
-Step 3.3 — arXiv Physics Abstracts Ingestion
+arXiv Physics Abstracts Ingestion
 
 Fetches physics education and classical physics abstracts from arXiv API.
 Focuses on categories relevant to olympiad-level physics.

@@ -1,7 +1,7 @@
 """
 equation_extractor.py
 ---------------------
-Step 2.2 — LaTeX Equation Extraction
+LaTeX Equation Extraction
 
 Primary:  Nougat — processes full PDF pages end-to-end, outputs markdown with
           inline LaTeX. Best for dense equation pages in born-digital PDFs.

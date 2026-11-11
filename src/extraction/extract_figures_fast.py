@@ -1,7 +1,7 @@
 """
 extract_figures_fast.py
 -----------------------
-Step 2.3a — Fast Figure Extraction
+Fast Figure Extraction
 
 Extracts all figures from PDFs and classifies them with CLIP.
 No Qwen2-VL description — that runs separately in describe_figures.py.

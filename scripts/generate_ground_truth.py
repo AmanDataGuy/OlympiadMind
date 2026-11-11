@@ -5,7 +5,7 @@ Randomly picks 50 PDFs from the dataset, stratified by source type,
 and writes a blank ground_truth.jsonl template to data/evaluation/.
 
 Run this once, then manually fill in the template for each document.
-The filled file is used in Phase 2 to compute CER, BLEU, and WER.
+The filled file is used to compute CER, BLEU, and WER.
 """
 
 import json
@@ -137,7 +137,7 @@ def main():
     print("  1. Open each PDF listed below")
     print("  2. Fill in the TODO fields in ground_truth.jsonl")
     print("  3. ~5-6 minutes per document, ~4-5 hours total")
-    print("  4. This file is your measuring stick for all Phase 2 quality metrics\n")
+    print("  4. This file is your measuring stick for all extraction quality metrics\n")
 
     # print the full list so you know exactly what to open
     print("─" * 65)

@@ -1,7 +1,7 @@
 """
 raptor_builder.py
 -----------------
-Phase 5.1 — RAPTOR Tree Construction
+RAPTOR Tree Construction
 
 Builds a hierarchical tree over all 1096 problem texts using:
   1. Sentence-transformers for embeddings
