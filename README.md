@@ -146,27 +146,81 @@ OlympiadMind ingests 1,120 Physics Olympiad PDFs across 8 source types, 3 langua
 
 ## How to Run
 
-Code lives on GitHub; data and the fine-tuned adapter live on Hugging Face:
+Code lives on GitHub. Data and the fine-tuned adapter live on Hugging Face:
 
-- Data: [amanDS5153/olympiadmind-data](https://huggingface.co/datasets/amanDS5153/olympiadmind-data) (corpus, RAPTOR, extracted docs, raw PDFs)
-- Adapter: [amanDS5153/olympiadmind-gemma-physics](https://huggingface.co/amanDS5153/olympiadmind-gemma-physics) (loaded from the Hub, used only on a CUDA GPU)
+| What | Where | Needed to run the app |
+|---|---|---|
+| Code, RAPTOR index, eval results | this repo | yes |
+| FAISS corpus (`corpus/`) | [amanDS5153/olympiadmind-data](https://huggingface.co/datasets/amanDS5153/olympiadmind-data) | yes |
+| Extracted docs, raw PDFs | same dataset (`extracted/`, `raw/`) | only to rebuild the graph or pipeline |
+| Gemma 2B concept adapter | [amanDS5153/olympiadmind-gemma-physics](https://huggingface.co/amanDS5153/olympiadmind-gemma-physics) | no, used only on a CUDA GPU (falls back to keywords) |
+
+### 1. Prerequisites
+
+- Python 3.11 (or Docker)
+- A [Neo4j AuraDB](https://neo4j.com/cloud/aura/) instance (free tier works)
+- A [Modal](https://modal.com) account. Mistral 7B runs there on an A10G
+- Optional: a [LangSmith](https://smith.langchain.com) key for traces, a Hugging Face token
+
+### 2. Clone and configure
 
 ```bash
 git clone https://github.com/AmanDataGuy/OlympiadMind
 cd OlympiadMind
-cp .env.example .env    # fill in Neo4j, LangSmith, HF and Modal credentials
-
-# the FAISS corpus index the retriever needs (~100MB)
-pip install -U huggingface_hub
-hf download amanDS5153/olympiadmind-data --repo-type dataset --include "corpus/*" --local-dir data
+cp .env.example .env
 ```
+
+| Variable | Value |
+|---|---|
+| `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD` | from the Aura console |
+| `MODAL_TOKEN_ID`, `MODAL_TOKEN_SECRET` | `modal token new`, or Modal dashboard → Settings → API tokens |
+| `LANGCHAIN_API_KEY`, `LANGCHAIN_PROJECT`, `LANGCHAIN_TRACING_V2` | optional, LangSmith traces |
+| `HF_TOKEN` | optional for downloads; needed for the gated Gemma base model on GPU |
+
+### 3. Pull the data
+
+```bash
+pip install -U huggingface_hub
+
+# runtime only: FAISS corpus index + chunks (~150MB)
+hf download amanDS5153/olympiadmind-data --repo-type dataset --include "corpus/*" --local-dir data
+
+# add this if you need to fill an empty Neo4j instance (step 4): merged documents (~12MB)
+hf download amanDS5153/olympiadmind-data --repo-type dataset --include "extracted/documents.jsonl" --local-dir data
+
+# everything: raw PDFs, figures, OCR output (~1.7GB)
+hf download amanDS5153/olympiadmind-data --repo-type dataset --local-dir data
+```
+
+### 4. Fill Neo4j (first time only)
+
+Skip this if your Aura instance already holds the graph. For a new, empty instance:
+
+```bash
+pip install -r requirements.txt
+python scripts/setup_neo4j.py          # constraints and indexes
+python src/graph/graph_builder.py      # 1,096 Problem nodes from extracted/documents.jsonl
+python scripts/write_concepts_neo4j.py # Concept nodes + REQUIRES edges from corpus/concept_labels.jsonl
+```
+
+`/v1/similar` and the Graph Explorer also use `SIMILAR_TO` edges, which no script creates. Make them in the Aura
+query console (approximation: links problems that share two or more concepts):
+
+```cypher
+MATCH (a:Problem)-[:REQUIRES]->(c:Concept)<-[:REQUIRES]-(b:Problem)
+WHERE a.id < b.id
+WITH a, b, count(c) AS shared WHERE shared >= 2
+MERGE (a)-[r:SIMILAR_TO]-(b) SET r.shared_concepts = shared
+```
+
+### 5. Run
 
 **Option 1 — Docker**
 ```bash
 docker compose up --build
 ```
 
-**Option 2 — Local** (Python 3.11)
+**Option 2 — Local**
 ```bash
 pip install -r requirements.txt
 python main.py          # terminal 1 — FastAPI
@@ -175,8 +229,33 @@ streamlit run app.py    # terminal 2 — Streamlit
 
 FastAPI swagger UI at `localhost:8000/docs` · Streamlit UI at `localhost:8501`
 
-To rebuild everything from the source PDFs, download the full dataset (`--local-dir data` without `--include`) and run the
-pipeline stages in `src/extraction`, `src/corpus`, `src/graph` and `src/agent/raptor_builder.py` in phase order.
+Smoke test:
+```bash
+curl localhost:8000/v1/health
+curl -X POST localhost:8000/v1/solve -H "Content-Type: application/json" \
+  -d '{"problem_text": "A charged particle enters a uniform magnetic field B with velocity v. Find the radius of its path."}'
+```
+
+A solve takes 60-90 s: most of it is Modal starting a GPU and loading Mistral 7B. If Modal is not set up, the agent
+still returns the retrieved context with a short structured answer.
+
+### Rebuild from the source PDFs (optional)
+
+Download the full dataset, then run the stages in order. Each one reads the previous stage's output under `data/`.
+
+| Stage | Command |
+|---|---|
+| Inventory + page classification | `python scripts/inventory.py`, `python src/extraction/classifier.py` |
+| Extraction | `python src/extraction/text_extractor.py`, `equation_extractor.py`, `extract_figures_fast.py`, `describe_figures.py`, `scanned_ocr.py`, `hindi_extractor.py`, `structured_parsers.py` (all in `src/extraction/`) |
+| Merge + quality report | `python src/extraction/merger.py`, `python src/extraction/quality.py` |
+| Knowledge corpus | `python src/corpus/wikipedia_ingest.py`, `stackexchange_ingest.py`, `arxiv_ingest.py`, then `embedder.py` (all in `src/corpus/`) |
+| Concept labels (Llama 3.1 8B on Modal) | `modal run src/graph/concept_extractor_modal.py` |
+| Neo4j graph | step 4 above |
+| RAPTOR tree | `python src/agent/raptor_builder.py` |
+| Gemma fine-tune (GPU) | `python scripts/prepare_finetune_data.py`, `python scripts/finetune_gemma.py`, `python scripts/eval_gemma.py` |
+| Benchmark | `python src/evaluation/benchmark.py` |
+
+The OCR and vision packages (Nougat, pix2tex, EasyOCR, transformers for TrOCR, CLIP, Qwen2-VL) are in `requirements.txt`; their weights download on first run, and a GPU is strongly recommended.
 
 ---
 
