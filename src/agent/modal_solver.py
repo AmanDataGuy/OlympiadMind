@@ -1,5 +1,11 @@
+"""
+modal_solver.py - runs Mistral 7B on a Modal A10G GPU and prints the answer.
+
+Called by agent.py and benchmark.py via `modal run src/agent/modal_solver.py --prompt-path <file>`.
+The answer is printed between ===SOLUTION_START=== and ===SOLUTION_END=== markers.
+"""
+
 import modal
-import sys
 
 app = modal.App("olympiadmind-solver")
 

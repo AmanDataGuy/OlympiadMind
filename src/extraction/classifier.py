@@ -1,9 +1,9 @@
-# scripts/classify_pages.py
+# src/extraction/classifier.py
 # ==========================
 # PURPOSE : For every page in every PDF, detect what type of content it has
 # USES    : PyMuPDF (fitz) to read pages
 # OUTPUT  : data/manifests/page_classification.json
-# RUN     : python scripts/classify_pages.py
+# RUN     : python src/extraction/classifier.py
 
 import fitz
 import json

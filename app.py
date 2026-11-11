@@ -53,12 +53,6 @@ st.sidebar.caption("**Stack:** RAPTOR · Neo4j · FAISS · Mistral 7B · LangGra
 # ── helpers ───────────────────────────────────────────────────────────────────
 
 @st.cache_resource
-def get_retriever():
-    from src.agent.retriever import HybridRetriever
-    return HybridRetriever()
-
-
-@st.cache_resource
 def get_neo4j_driver():
     from neo4j import GraphDatabase
     return GraphDatabase.driver(

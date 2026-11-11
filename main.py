@@ -42,19 +42,7 @@ app.add_middleware(
 
 # ── lazy loaders ──────────────────────────────────────────────────────────────
 
-_agent    = None
-_driver   = None
-_retriever = None
-
-
-def get_agent():
-    global _agent
-    if _agent is None:
-        import sys
-        sys.path.insert(0, ".")
-        from src.agent.agent import build_agent
-        _agent = build_agent()
-    return _agent
+_driver = None
 
 
 def get_driver():
@@ -122,8 +110,6 @@ def solve(request: SolveRequest):
     if not request.problem_text.strip():
         raise HTTPException(status_code=400, detail="problem_text cannot be empty")
 
-    import sys
-    sys.path.insert(0, ".")
     from src.agent.agent import solve as agent_solve
 
     start  = time.time()
@@ -279,8 +265,6 @@ def mcp_solve(tool_call: MCPToolCall):
     if not problem_text:
         raise HTTPException(status_code=400, detail="arguments.problem_text is required")
 
-    import sys
-    sys.path.insert(0, ".")
     from src.agent.agent import solve as agent_solve
 
     result = agent_solve(problem_text)

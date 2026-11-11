@@ -1,7 +1,9 @@
-echo "data/raw
+.git
+data/raw
 data/extracted
-models/gemma-physics
+models
 venv
+.venv
 __pycache__
 *.pyc
-.env" > .dockerignore
+.env

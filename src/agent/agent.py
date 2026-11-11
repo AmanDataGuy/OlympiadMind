@@ -18,11 +18,16 @@ import json
 import os
 import re
 import sys
+from functools import cache
 from typing import TypedDict, Optional
 from dotenv import load_dotenv
 from langchain_core.tracers.context import collect_runs
 
 load_dotenv()
+
+# fine-tuned LoRA adapter on the Hub; set GEMMA_ADAPTER=models/gemma-physics to use a local copy
+GEMMA_ADAPTER = os.getenv("GEMMA_ADAPTER", "amanDS5153/olympiadmind-gemma-physics")
+GEMMA_BASE    = "google/gemma-2-2b-it"
 
 
 # ── state definition ──────────────────────────────────────────────────────────
@@ -74,21 +79,29 @@ def classify_topic(state: QueryState) -> QueryState:
 
 # ── concept extractor ─────────────────────────────────────────────────────────
 
-def gemma_extract_concepts(text: str) -> list:
-    """Extract physics concepts using fine-tuned Gemma 2B."""
+# Load the fine-tuned Gemma adapter once and keep it in memory (GPU only).
+@cache
+def load_gemma():
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM
     from peft import PeftModel
 
-    PEFT_PATH = "models/gemma-physics"
-    MODEL_ID  = "google/gemma-2-2b-it"
-
-    tokenizer  = AutoTokenizer.from_pretrained(PEFT_PATH)
+    if not torch.cuda.is_available():
+        raise RuntimeError("no CUDA GPU, using keyword extraction")
+    tokenizer  = AutoTokenizer.from_pretrained(GEMMA_ADAPTER)
     base_model = AutoModelForCausalLM.from_pretrained(
-        MODEL_ID, dtype=torch.float16, device_map={"": 0}
+        GEMMA_BASE, dtype=torch.float16, device_map={"": 0}
     )
-    model = PeftModel.from_pretrained(base_model, PEFT_PATH, device_map={"": 0})
+    model = PeftModel.from_pretrained(base_model, GEMMA_ADAPTER, device_map={"": 0})
     model.eval()
+    return tokenizer, model
+
+
+# Ask the fine-tuned Gemma model which physics concepts a problem needs.
+def gemma_extract_concepts(text: str) -> list:
+    import torch
+
+    tokenizer, model = load_gemma()
 
     prompt = f"<start_of_turn>user\nList the physics concepts required to solve this problem.\n\n{text[:400]}<end_of_turn>\n<start_of_turn>model\n"
     inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
@@ -307,17 +320,19 @@ def validate_solution(state: QueryState) -> QueryState:
     if not solution or len(solution) < 50:
         confidence = 0.3
 
-    return {**state, "confidence": confidence}
+    return {**state, "confidence": confidence, "retry_count": state.get("retry_count", 0) + 1}
 
 
 def should_retry(state: QueryState) -> str:
-    if state.get("confidence", 1.0) < 0.4 and state.get("retry_count", 0) < 1:
+    # retry_count is 1 after the first validation, so this allows one retry
+    if state.get("confidence", 1.0) < 0.4 and state.get("retry_count", 0) < 2:
         return "retry"
     return "end"
 
 
 # ── graph assembly ────────────────────────────────────────────────────────────
 
+@cache
 def build_agent():
     from langgraph.graph import StateGraph, END
 

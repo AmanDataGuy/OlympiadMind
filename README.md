@@ -7,7 +7,7 @@
 1,120 PDFs · RAPTOR Hierarchical Retrieval · Neo4j Knowledge Graph · Gemma 2B Fine-tuning · LangGraph Agent
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue?style=flat-square&logo=python)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.4-red?style=flat-square&logo=pytorch)](https://pytorch.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.5-red?style=flat-square&logo=pytorch)](https://pytorch.org/)
 [![Neo4j](https://img.shields.io/badge/Neo4j-AuraDB-018bff?style=flat-square&logo=neo4j)](https://neo4j.com/)
 [![LangGraph](https://img.shields.io/badge/LangGraph-Agent-green?style=flat-square)](https://langchain.com/langgraph)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com/)
@@ -146,19 +146,27 @@ OlympiadMind ingests 1,120 Physics Olympiad PDFs across 8 source types, 3 langua
 
 ## How to Run
 
-**Option 1 — Docker**
+Code lives on GitHub; data and the fine-tuned adapter live on Hugging Face:
+
+- Data: [amanDS5153/olympiadmind-data](https://huggingface.co/datasets/amanDS5153/olympiadmind-data) (corpus, RAPTOR, extracted docs, raw PDFs)
+- Adapter: [amanDS5153/olympiadmind-gemma-physics](https://huggingface.co/amanDS5153/olympiadmind-gemma-physics) (loaded from the Hub, used only on a CUDA GPU)
+
 ```bash
 git clone https://github.com/AmanDataGuy/OlympiadMind
 cd OlympiadMind
-cp .env.example .env
-# fill in NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD, LANGCHAIN_API_KEY, HF_TOKEN
-docker-compose up --build
+cp .env.example .env    # fill in Neo4j, LangSmith, HF and Modal credentials
+
+# the FAISS corpus index the retriever needs (~100MB)
+pip install -U huggingface_hub
+hf download amanDS5153/olympiadmind-data --repo-type dataset --include "corpus/*" --local-dir data
 ```
-FastAPI at `localhost:8000/docs` · Streamlit at `localhost:8501`
 
-> Note: requires `.env` credentials and `data/` folder with FAISS indexes and RAPTOR tree.
+**Option 1 — Docker**
+```bash
+docker compose up --build
+```
 
-**Option 2 — Local**
+**Option 2 — Local** (Python 3.11)
 ```bash
 pip install -r requirements.txt
 python main.py          # terminal 1 — FastAPI
@@ -166,6 +174,9 @@ streamlit run app.py    # terminal 2 — Streamlit
 ```
 
 FastAPI swagger UI at `localhost:8000/docs` · Streamlit UI at `localhost:8501`
+
+To rebuild everything from the source PDFs, download the full dataset (`--local-dir data` without `--include`) and run the
+pipeline stages in `src/extraction`, `src/corpus`, `src/graph` and `src/agent/raptor_builder.py` in phase order.
 
 ---
 
